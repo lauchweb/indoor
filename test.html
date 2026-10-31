@@ -1,44 +1,65 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Andemik</title>
+  <title>NOU ANDEMIK — Native Flora</title>
 
   <meta
     name="description"
-    content="Andemik — fieldwork, laboratory research, and the conservation of endemic flora."
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
   >
 
-  <link rel="canonical" href="https://site.com/">
-  <link rel="icon" href="/favicon.ico">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
 
+  <link rel="canonical" href="https://nou.andemik.com/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Andemik">
+  <meta property="og:title" content="NOU ANDEMIK — Native Flora">
   <meta
     property="og:description"
-    content="Andemik — fieldwork, laboratory research, and the conservation of endemic flora."
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
   >
-  <meta property="og:url" content="https://site.com/">
-  <meta property="og:image" content="https://site.com/og.jpg">
+  <meta property="og:url" content="https://nou.andemik.com/">
+  <meta property="og:image" content="https://nou.andemik.com/og.jpg">
+  <meta property="og:image:alt" content="NOU ANDEMIK">
+  <meta property="og:site_name" content="NOU ANDEMIK">
 
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Andemik">
+  <meta name="twitter:title" content="NOU ANDEMIK — Native Flora">
   <meta
     name="twitter:description"
-    content="Andemik — fieldwork, laboratory research, and the conservation of endemic flora."
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
   >
-  <meta name="twitter:image" content="https://site.com/og.jpg">
+  <meta name="twitter:image" content="https://nou.andemik.com/og.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NOU ANDEMIK",
+    "url": "https://nou.andemik.com/"
+  }
+  </script>
 
   <style>
+
     :root {
       --background: #ffffff;
       --text: #171717;
+      --accent: #617451;
 
       --page-margin: clamp(20px, 4vw, 64px);
-      --image-gap: clamp(16px, 2vw, 32px);
-      --label-gap: 12px;
     }
 
     *,
@@ -67,6 +88,7 @@
         sans-serif;
 
       font-weight: 400;
+
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -87,94 +109,102 @@
         calc(var(--page-margin) * 0.8);
     }
 
+    /* Header */
+
     .header {
       display: flex;
       align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .wordmark,
+    .menu-link {
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-decoration: none;
     }
 
     .wordmark {
       color: var(--text);
-
-      font-size: 14px;
-      line-height: 1;
-
       font-weight: 700;
-      letter-spacing: 0.08em;
-
-      text-decoration: none;
+      white-space: nowrap;
     }
 
-    main {
+    .header-right {
       display: flex;
       align-items: center;
+      gap: 10px;
+    }
+
+    .menu-link {
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .menu-dot {
+      color: var(--text);
+      font-size: 10px;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .wordmark:hover,
+    .menu-link:hover,
+    .footer a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Main */
+
+    main {
+      min-height: 0;
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-
-      padding-block: 8vh;
+      align-items: center;
     }
 
-    .sections {
-      width: 100%;
-      max-width: 1100px;
-
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-
-      gap: var(--image-gap);
-
-      margin-inline: auto;
-    }
-
-    .section {
-      display: block;
-      min-width: 0;
-
-      color: var(--text);
-      text-align: center;
-
-      text-decoration: none;
-    }
-
-    .image-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-    }
-
-    .section img {
+    .hero-image {
       display: block;
 
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
-      object-fit: cover;
+      width: min(65%, 560px);
+      max-height: 42svh;
+
+      height: auto;
+      object-fit: contain;
     }
 
-    .section-label {
-      display: inline-block;
+    .tagline {
+      position: absolute;
+      top: calc(50% + 21svh + 32px);
 
-      margin-top: var(--label-gap);
+      width: 100%;
+      max-width: 420px;
 
-      color: var(--text);
+      margin: 0;
 
-      font-size: 11px;
-      line-height: 1.2;
-
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.5;
       font-weight: 400;
-      letter-spacing: 0.10em;
+      letter-spacing: 0.01em;
 
-      text-transform: uppercase;
-
-      text-decoration-line: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
+      text-align: center;
     }
 
-    .wordmark:focus-visible,
-    .section:focus-visible,
-    .footer a:focus-visible {
-      outline: 1px solid var(--text);
-      outline-offset: 4px;
-    }
+    /* Footer */
 
     .footer {
       display: grid;
@@ -184,9 +214,9 @@
 
       color: var(--text);
 
+      font-family: inherit;
       font-size: 10px;
       line-height: 1.2;
-
       font-weight: 400;
       letter-spacing: 0.04em;
     }
@@ -208,40 +238,63 @@
       text-decoration: none;
     }
 
-    .footer a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .footer .contact-link {
+      color: var(--text);
+      font-weight: 700;
     }
 
     .footer-dot {
       user-select: none;
     }
 
+    /* Focus */
+
+    .wordmark:focus-visible,
+    .menu-link:focus-visible,
+    .footer a:focus-visible {
+      outline: 1px solid var(--text);
+      outline-offset: 4px;
+    }
+
+    /* Mobile */
+
     @media (max-width: 600px) {
+
       :root {
         --page-margin: 20px;
-        --image-gap: 16px;
-        --label-gap: 11px;
       }
 
       .wordmark {
         font-size: 14px;
       }
 
-      .sections {
-        max-width: none;
+      .menu-link {
+        font-size: 12px;
       }
 
-      main {
-        padding-block: 6vh;
+      .header-right {
+        gap: 8px;
       }
 
-      .section-label {
-        font-size: 11px;
+      .menu-dot {
+        font-size: 9px;
+      }
+
+      .hero-image {
+        width: 85%;
+        max-height: 38svh;
+      }
+
+      .tagline {
+        top: calc(50% + 19svh + 28px);
+
+        max-width: 340px;
+        font-size: 12px;
+        line-height: 1.5;
       }
 
       .footer {
-        font-size: 10px;
+        font-size: 9px;
       }
 
       .footer-right {
@@ -250,34 +303,53 @@
     }
 
     @media (max-width: 400px) {
+
+      .wordmark {
+        font-size: 14px;
+      }
+
+      .menu-link {
+        font-size: 11px;
+        letter-spacing: 0.05em;
+      }
+
+      .header-right {
+        gap: 6px;
+      }
+
       .footer {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        font-size: 8px;
       }
 
       .footer-right {
-        justify-content: flex-start;
+        gap: 7px;
       }
     }
 
     @media (max-width: 340px) {
+
       :root {
         --page-margin: 16px;
-        --image-gap: 12px;
       }
 
       .wordmark {
-        font-size: 13px;
+        font-size: 14px;
       }
 
-      .section-label {
+      .menu-link {
         font-size: 10px;
+        letter-spacing: 0.04em;
+      }
+
+      .header-right {
+        gap: 5px;
       }
 
       .footer {
-        font-size: 9px;
+        font-size: 8px;
       }
     }
+
   </style>
 </head>
 
@@ -285,76 +357,100 @@
 
   <div class="site">
 
+    <!-- Header -->
+
     <header class="header">
+
       <a
         class="wordmark"
         href="/"
-        aria-label="Andemik home"
+        aria-label="NOU ANDEMIK home"
       >
-        ANDEMIK
+        NOU ANDEMIK
       </a>
-    </header>
 
-    <main>
       <nav
-        class="sections"
-        aria-label="Andemik sections"
+        class="header-right"
+        aria-label="Main navigation"
       >
 
-        <a
-          class="section"
-          href="https://field.site.com"
-        >
-          <div class="image-wrap">
-            <img
-              src="/field.jpg"
-              alt=""
-              loading="eager"
-              decoding="async"
-            >
-          </div>
-
-          <span class="section-label">FIELD</span>
+        <a class="menu-link" href="/about.html">
+          ABOUT
         </a>
 
-        <a
-          class="section"
-          href="https://lab.site.com"
-        >
-          <div class="image-wrap">
-            <img
-              src="/lab.jpg"
-              alt=""
-              loading="eager"
-              decoding="async"
-            >
-          </div>
+        <span class="menu-dot" aria-hidden="true">·</span>
 
-          <span class="section-label">LAB</span>
+        <a class="menu-link" href="/nursery.html">
+          NURSERY
+        </a>
+
+        <span class="menu-dot" aria-hidden="true">·</span>
+
+        <a class="menu-link" href="/field.html">
+          FIELD
+        </a>
+
+        <span class="menu-dot" aria-hidden="true">·</span>
+
+        <a class="menu-link" href="/works.html">
+          WORKS
         </a>
 
       </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <main aria-label="NOU ANDEMIK">
+
+      <img
+        class="hero-image"
+        src="/home.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      >
+
+      <p class="tagline">
+        Keeping our native flora rooted for generations to come.
+      </p>
+
     </main>
+
+    <!-- Footer -->
 
     <footer class="footer">
 
       <div class="footer-left">
         <span>© 2026</span>
-        <span>ANDEMIK</span>
+        <span>NOU ANDEMIK</span>
       </div>
 
       <nav
         class="footer-right"
-        aria-label="Legal"
+        aria-label="Footer navigation"
       >
-        <a href="/terms.html">Terms</a>
 
-        <span
-          class="footer-dot"
-          aria-hidden="true"
-        >·</span>
+        <a
+          class="contact-link"
+          href="mailto:nursery@andemik.com"
+        >
+          Contact
+        </a>
 
-        <a href="/privacy.html">Privacy</a>
+        <span class="footer-dot" aria-hidden="true">·</span>
+
+        <a href="/terms.html">
+          Terms
+        </a>
+
+        <span class="footer-dot" aria-hidden="true">·</span>
+
+        <a href="/privacy.html">
+          Privacy
+        </a>
+
       </nav>
 
     </footer>
@@ -362,4 +458,6 @@
   </div>
 
 </body>
+
 </html>
+
