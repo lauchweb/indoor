@@ -1,131 +1,426 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>indoor.mu</title>
-  <meta name="description" content="indoor.mu">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NOU ANDEMIK — Native Flora</title>
+
+  <meta
+    name="description"
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="canonical" href="https://nou.andemik.com/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NOU ANDEMIK — Native Flora">
+  <meta
+    property="og:description"
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
+  >
+  <meta property="og:url" content="https://nou.andemik.com/">
+  <meta property="og:image" content="https://nou.andemik.com/og.jpg">
+  <meta property="og:image:alt" content="NOU ANDEMIK">
+  <meta property="og:site_name" content="NOU ANDEMIK">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NOU ANDEMIK — Native Flora">
+  <meta
+    name="twitter:description"
+    content="NOU ANDEMIK is dedicated to keeping our native flora rooted for generations to come."
+  >
+  <meta name="twitter:image" content="https://nou.andemik.com/og.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NOU ANDEMIK",
+    "url": "https://nou.andemik.com/"
+  }
+  </script>
 
   <style>
-    body {
-      margin: 0;
-      background-color: #f7f7f7;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
+
+    :root {
+      --background: #ffffff;
+      --text: #171717;
+      --accent: #617451;
+
+      --page-margin: clamp(20px, 4vw, 64px);
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--background);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100svh;
+
+      background: var(--background);
+      color: var(--text);
+
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      font-weight: 400;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site {
+      min-height: 100svh;
+
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+
+      padding:
+        var(--page-margin)
+        var(--page-margin)
+        calc(var(--page-margin) * 0.8);
+    }
+
+    /* Header */
+
     .header {
-      padding: 30px 40px;
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
+    }
+
+    .wordmark,
+    .menu-link {
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .wordmark {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .menu-link {
+      color: var(--text);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .wordmark:hover,
+    .menu-link:hover,
+    .footer a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Main */
+
+    main {
+      min-height: 0;
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
     }
 
-    .title-block {
-      display: flex;
-      flex-direction: column;
+    .hero-image {
+      display: block;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      width: min(65%, 560px);
+      max-height: 42svh;
+
+      height: auto;
+      object-fit: contain;
     }
 
-    .title {
-      font-size: 34px;
-      font-weight: 700;
-      color: #123996;
+    .tagline {
+      position: absolute;
+      top: calc(50% + 21svh + 32px);
+
+      width: 100%;
+      max-width: 420px;
+
       margin: 0;
-    }
 
-    .subtitle {
-      margin: 8px 0 0 0;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .nav {
-      display: flex;
-      flex-direction: row;
-      gap: 30px;
-      font-size: 24px;
-      font-weight: 400;
-      font-family: Arial, sans-serif;
-    }
-
-    .help {
-      color: #123996;
-    }
-
-    .info,
-    .about {
-      color: #555;
-    }
-
-    .spacer {
-      flex: 1;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
+      font-family: inherit;
       font-size: 14px;
-      background: transparent;
-    }
-
-    .footer-pc {
-      color: #555;
+      line-height: 1.5;
       font-weight: 400;
+      letter-spacing: 0.01em;
+
+      text-align: center;
     }
 
-    .footer-me {
-      color: #123996;
+    /* Footer */
+
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      align-items: end;
+
+      color: var(--text);
+
+      font-family: inherit;
+      font-size: 10px;
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer .contact-link {
+      color: var(--text);
       font-weight: 700;
     }
+
+    .footer-dot {
+      user-select: none;
+    }
+
+    /* Focus */
+
+    .wordmark:focus-visible,
+    .menu-link:focus-visible,
+    .footer a:focus-visible {
+      outline: 1px solid var(--text);
+      outline-offset: 4px;
+    }
+
+    /* Mobile */
 
     @media (max-width: 600px) {
-      .header {
-        padding: 20px;
-        align-items: center;
+
+      :root {
+        --page-margin: 20px;
       }
 
-      .title {
-        font-size: 26px;
-      }
-
-      .subtitle {
+      .wordmark {
         font-size: 14px;
       }
 
-      .nav {
-        font-size: 18px;
-        gap: 20px;
+      .menu-link {
+        font-size: 12px;
+      }
+
+      .header-right {
+        gap: 8px;
+      }
+
+      .hero-image {
+        width: 85%;
+        max-height: 38svh;
+      }
+
+      .tagline {
+        top: calc(50% + 19svh + 28px);
+
+        max-width: 340px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .footer {
+        font-size: 9px;
+      }
+
+      .footer-right {
+        gap: 8px;
       }
     }
+
+    @media (max-width: 400px) {
+
+      .wordmark {
+        font-size: 14px;
+      }
+
+      .menu-link {
+        font-size: 11px;
+      }
+
+      .header-right {
+        gap: 7px;
+      }
+
+      .footer {
+        font-size: 8px;
+      }
+
+      .footer-right {
+        gap: 7px;
+      }
+    }
+
+    @media (max-width: 340px) {
+
+      :root {
+        --page-margin: 16px;
+      }
+
+      .wordmark {
+        font-size: 14px;
+      }
+
+      .menu-link {
+        font-size: 10px;
+      }
+
+      .footer {
+        font-size: 8px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <div class="title-block">
-      <h1 class="title">indoor.mu</h1>
-      <p class="subtitle">This domain Is for sale</p>
-      <p class="subtitle">indoor.mu@proton.me</p>
-    </div>
+  <div class="site">
 
-    <div class="nav">
-      <div class="help">Buy indoor.mu</div>
-    
-    </div>
+    <!-- Header -->
+
+    <header class="header">
+
+      <a
+        class="wordmark"
+        href="/"
+        aria-label="NOU ANDEMIK home"
+      >
+        NOU ANDEMIK
+      </a>
+
+      <nav
+        class="header-right"
+        aria-label="Main navigation"
+      >
+
+        <a
+          class="menu-link"
+          href="/about.html"
+        >
+          ABOUT
+        </a>
+
+      </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <main aria-label="NOU ANDEMIK">
+
+      <img
+        class="hero-image"
+        src="/home.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      >
+
+      <p class="tagline">
+        Keeping our native flora rooted for generations to come.
+      </p>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+      <div class="footer-left">
+        <span>© 2026</span>
+        <span>NOU ANDEMIK</span>
+      </div>
+
+      <nav
+        class="footer-right"
+        aria-label="Footer navigation"
+      >
+
+        <a
+          class="contact-link"
+          href="mailto:nursery@andemik.com"
+        >
+          Contact
+        </a>
+
+        <span class="footer-dot" aria-hidden="true">·</span>
+
+        <a href="/terms.html">
+          Terms
+        </a>
+
+        <span class="footer-dot" aria-hidden="true">·</span>
+
+        <a href="/privacy.html">
+          Privacy
+        </a>
+
+      </nav>
+
+    </footer>
+
   </div>
 
-  <div class="spacer"></div>
-
-  <footer>
-    <span class="footer-pc">For Sale ©</span>
-    <span class="footer-me">indoor.mu</span>
-    <span class="footer-2026">2026</span>
-  </footer>
-
 </body>
+
 </html>
